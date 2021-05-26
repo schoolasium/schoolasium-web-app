@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Schoolasium | Class {{subject.class_name}}</title>
+{% endblock title %}
+
+
+{% block content %}
+<style>
+    .chapter_index {
+        cursor: pointer;
+    }
+
+    .left_card_content {
+        height: 400px;
+        overflow: auto;
+    }
+
+    .right_card_content {
+        height: 600px;
+        overflow: auto;
+    }
+</style>
+
+{% include 'subjects/subject_nav.html' %}
+<div class="row mt-2 mx-0 p-4">
+    <div class="col-md-3 left_card_content">
+        {% if chapters %}
+        <div class="card mt-4">
+            <div class="card-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Chapter Index</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for chapter in chapters %}
+                        <tr>
+                            <th class="chapter_index" id="chapter_{{chapter.subject_name}}_{{chapter.id}}">
+                                {{chapter.chapter_name}}
+                            </th>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <div class="col-md-9 right_card_content">
+        {% for chapter in chapters %}
+        <div class="card p-2 my-4 chapter_details" id="chapter_{{chapter.subject_name}}_{{chapter.id}}_details">
+            <div class="card-body">
+                <center>
+                    <h4 class="card-title">
+                        Chapter: <span class="text-muted ml-2"> {{chapter.chapter_name}}</span>
+                    </h4>
+                </center>
+
+                <div>
+                    <hr>
+                </div>
+
+                <div class="card-text pt-2">
+                    <div class="row">
+                        <div class="col-md-3 col-xs-6 b-r">
+                            <strong>Objective</strong>
+                            <br>
+                            {% for chapterDetail in chapterDetails %}
+                            {% if chapter.id == chapterDetail.chapter_name.id %}
+                            <p class="text-muted">
+                                {{chapterDetail.chapter_objective}}
+                            </p>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+
+                        <div class="col-md-3 col-xs-6 text-center b-r">
+                            <strong>Learning Materials</strong>
+                            <br>
+                            {% for chapterDetail in chapterDetails %}
+                            {% if chapter.id == chapterDetail.chapter_name.id %}
+                            <p class="text-muted">
+                                <a href="{{chapterDetail.material_link}}" target="_blank">Link</a>
+                            </p>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+
+                        <div class="col-md-3 col-xs-6 text-center b-r">
+                            <strong>Lecture Link</strong>
+                            <br>
+                            {% for chapterDetail in chapterDetails %}
+                            {% if chapter.id == chapterDetail.chapter_name.id %}
+                            <p class="text-muted">
+                                <a href="{{chapterDetail.video_lecture_link}}" target="_blank">
+                                    Link
+                                </a>
+                            </p>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+
+                        <div class="col-md-3 col-xs-6 text-center b-r">
+                            <strong>Activity Link</strong>
+                            <br>
+                            {% for chapterDetail in chapterDetails %}
+                            {% if chapter.id == chapterDetail.chapter_name.id %}
+                            <p class="text-muted">
+                                <a href="{{chapterDetail.activity_link}}" target="_blank">
+                                    Link
+                                </a>
+                            </p>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+
+    </div>
+</div>
+
+
+{% endblock content %}
+
+{% block custom_js %}
+<script>
+    $(".chapter_index").click(function () {
+        id = this.id
+        console.log(`id: `, id);
+        div_id = id + '_details';
+
+        Array.from(document.querySelectorAll('.chapter_details')).forEach((el) => el.classList.remove('border-primary'));
+
+        // $('html,body').animate({
+        //     scrollTop: $(`#${div_id}`).offset().top
+        // }, 'slow');
+        document.querySelector(`#${div_id}`).scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+            inline: 'center'
+        });
+        document.getElementById(`${div_id}`).classList.add('border-primary');
+    });
+</script>
+{% endblock custom_js %}
+<!-- <div class="card-body">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col" class="border-right">Objective</th>
+                <th scope="col" class="border-right">Learning Materials</th>
+                <th scope="col" class="border-right">Lecture Link</th>
+                <th scope="col" class="border-right">Activity Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for chapter in chapters %}
+            <tr>
+                <th scope="row" class="border-right">{{chapter.chapter_objective}}</th>
+                <td class="border-right text-center">
+                    <a href="{{chapter.material_link}}" target="_blank">
+                        Link
+                    </a>
+                </td>
+                <td class="border-right text-center">
+                    <a href="{{chapter.video_lecture_link}}" target="_blank">
+                        Link
+                    </a>
+                </td>
+                <td class="border-right text-center">
+                    <a href="{{chapter.activity_link}}" target="_blank">
+                        Link
+                    </a>
+                </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div> -->

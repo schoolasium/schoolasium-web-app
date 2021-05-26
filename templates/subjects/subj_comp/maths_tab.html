@@ -1,0 +1,23 @@
+{% load static %}
+<div class="tab-pane fade show active" id="maths" role="tabpanel" aria-labelledby="maths-tab">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Objective</th>
+                <th scope="col">Learning Materials</th>
+                <th scope="col">Lecture Link</th>
+                <th scope="col">Activity Link</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for chapter in chapters %}
+            <tr>
+                <th scope="row">{{chapter.chapter_objective}}</th>
+                <td>{{chapter.material_link}}</td>
+                <td>{{chapter.video_lecture_link}}</td>
+                <td>{{chapter.activity_link}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

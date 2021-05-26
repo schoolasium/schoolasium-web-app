@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Schoolasium | Home</title>
+{% endblock title %}
+
+{% block css %}
+<link type="text/css" rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock css %}
+
+{% block content %}
+
+<div class="row mx-0">
+    <div class="col">
+        <div class="card" style="border: none;">
+            <div class="card-text">
+
+                <!-- Banner 1 (Landing Page) -->
+                <div class="row mt-2">
+                    <div class="col mx-auto">
+                        <div class="banner_1">
+                            <img src="/static/images/landing_page-1.png" alt="banner_image" class="banner_1_image">
+                            <div class="banner_1_text_class">
+                                <span>Creating Schools As</span>
+                                <span>a Gymnasium of</span>
+                                <span>Learning</span>
+                            </div>
+                            <div class="banner_1_bottom">
+                                <span>Creating Innovation a part of <br> culture</span>
+                                <p class="banner_1_button lead">
+                                    <a class="btn btn-warning btn-sm text-white" href="/register/"
+                                        role="button">Learner</a>
+                                    <a class="btn btn-warning btn-sm text-white" href="/register/?type=1/"
+                                        role="button">Teacher</a>
+                                    <a class="btn btn-warning btn-sm text-white" href="/register/?type=2/"
+                                        role="button">Parent</a>
+                                    <a class="btn btn-warning btn-sm text-white" href="/register/?type=1/"
+                                        role="button">Mentor</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- banner-2 Teachers page -->
+                <div class="row mt-2">
+                    <div class="col mx-auto">
+                        <div class="banner_2">
+                            <img src="/static/images/landing_page-2.png" alt="banner_2_image" class="banner_2_image">
+                            <div class="banner_2_text_class">
+                                <h4>TEACHERS</h4>
+                                <span>Experience the teaching – learning practice from premier institute of India and
+                                    across the globe</span>
+                                <p>To create the pedagogy of 21st century</p>
+                            </div>
+
+                            <div class="banner_2_bottom">
+                                <a class="btn btn-warning btn-sm text-white" href="/register/?type=1/"
+                                    role="button">Teachers start here</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Banner-3  -->
+                <div class="row mt-2">
+                    <div class="col mx-auto">
+                        <div class="banner_3">
+                            <img src="/static/images/landing_page-3.png" alt="banner_3_image" class="banner_3_image">
+                            <div class="banner_3_text_class">
+                                <h3>STUDENTS</h3>
+                                <h4>Enjoy the learning from India and world’s top brain</h4>
+                                <p>Learning tutorials from IITs, IIMs, NITs, BITs, AIIMS, RIMS and India’s premier
+                                    Institutes</p>
+                            </div>
+
+                            <div class="banner_3_bottom">
+                                <a class="btn btn-warning btn-sm text-white" href="/register/" role="button">Students
+                                    start here</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row mt-2">
+                    <div class="col mx-auto">
+                        <div class="banner_4">
+                            <img src="/static/images/landing_page-4.png" alt="banner_4_image" class="banner_4_image">
+                            <div class="banner_4_text_class">
+                                <h3>MENTORS</h3>
+                                <p>Be a SCHOOLASIUM Fellow</p>
+                                <p>To nurture a young scientist for better world</p>
+                                <p class="text-warning">Let’s solve the mystery of “Does School Kill
+                                    Creativity”
+                                </p>
+                                <h2>Join the movement to connect with your roots</h2>
+                                <span>Connect and empower to the marginalised section of society through
+                                    technology</span>
+                            </div>
+
+                            <div class="banner_4_bottom">
+                                <a class="btn btn-warning btn-large text-white" href="/register/?type=3/"
+                                    role="button">Mentors start here</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+<!-- <div class="row p-4">
+    <div class="col-5" style="background-color: teal;">
+    </div>
+    <div class="col-7">
+        <div class="jumbotron text-center h-100">
+            <div class="container">
+                <h1 class="display-4">Schoolasium</h1>
+                <h1 class="display-5">Centre For a Learning Gymnasium</h1>
+                <hr class="my-4">
+                <p>"Creating Schools As a Gymnasium of Learning"</p>
+                <p class="lead mt-4">
+                    <a class="mx-2 btn btn-primary btn-sm" href="/register/" role="button">Learner</a>
+                    <a class="mx-2 btn btn-primary btn-sm" href="/register/?type=1/" role="button">Teacher</a>
+                    <a class="mx-2 btn btn-primary btn-sm" href="/register/?type=2/" role="button">Parent</a>
+                    <a class="mx-2 btn btn-primary btn-sm" href="/register/?type=3/" role="button">Mentor</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div> -->

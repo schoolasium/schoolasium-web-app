@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+<title>Schoolasium | Add Content</title>
+{% endblock title %}
+
+
+{% block content %}
+
+<!-- <div class="row my-4">
+    <div class="col-lg col-md">
+        <button data-toggle="modal" data-target="#add_subject"
+            class="btn btn-rounded btn-outline-success float-right mx-2">
+            Add A new Subject
+        </button>
+
+        <button data-toggle="modal" data-target="#add_chapter_content"
+            class="btn btn-rounded btn-outline-success float-right mx-2">
+            Add a new Chapter
+        </button>
+
+    </div>
+</div> -->
+
+<div class="row p-5 mx-0">
+    {% for item in classes %}
+    <div class="col-md-4 col-sm-6 d-flex align-items-stretch my-4">
+        <div class="card bg-info text-white w-100">
+            <div class="card-body ">
+                <div class="d-flex no-block align-items-center">
+                    <div class="ml-3 mt-2 w-100">
+                        <h4 class="text-center font-medium mb-2 text-white">
+                            {{item}}
+                        </h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-footer d-flex justify-content-around">
+                <a href="/content/class/{{item}}/"
+                    class="btn btn-outline-light btn-sm btn-rounded waves-effect">View</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
